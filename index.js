@@ -1,11 +1,9 @@
-const express = require('express');
+// require("dotenv-safe").config();
+const app = require('./src/app');
 
-const server = express();
+const port = 8081;
 
-server.use(express.json());
-
-
-
-
-
-server.listen(3000);
+// user node 12
+app.listen(port, function () {
+    console.log(`app listening on port ${port}`)
+})
