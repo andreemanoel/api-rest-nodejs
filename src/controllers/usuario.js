@@ -17,4 +17,14 @@ const create =  async (req, res, next) => {
     }
 }
 
-module.exports = {create};
+const all =  async (req, res, next) => {
+    try{  
+        let usuarios = await Usuario.findAll();
+        
+        res.status(200).send(usuarios);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+}
+
+module.exports = {create, all};
