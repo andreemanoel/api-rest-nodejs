@@ -7,6 +7,8 @@ const create =  async (req, res, next) => {
 
         let usuario = await Usuario.create({
             nome: body.nome,
+            email: body.email,
+            password: hash
         });
         
         let usuarios = await Usuario.findAll();
