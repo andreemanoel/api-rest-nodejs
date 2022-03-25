@@ -4,13 +4,13 @@ const models = require('./models/models');
 models();
 
 //Rotas
-const usuario = require('./routes/usuario');
+const funcionario = require('./routes/funcionario');
 
 app.use(express.json());
 
 // app.use(validToken);
 
-app.use('/usuario', usuario);
+app.use('/funcionario', funcionario);
 // app.use('/auth', auth);
 // app.use('/produtos', rotaProduto);
 // app.use('/pessoas', rotaPessoas);

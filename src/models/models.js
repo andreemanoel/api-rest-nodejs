@@ -1,5 +1,5 @@
 const db = require('../config/database');
-require('./usuario');
+require('./funcionario');
 
 const load =  async () => {
     
