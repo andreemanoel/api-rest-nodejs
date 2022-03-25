@@ -8,7 +8,8 @@ const create =  async (req, res, next) => {
         let usuario = await Usuario.create({
             nome: body.nome,
             email: body.email,
-            password: body.password
+            password: body.password.Usuario,
+            status: body.status
         });
         
         let usuarios = await Usuario.findAll();
