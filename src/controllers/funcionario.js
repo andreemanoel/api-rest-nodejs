@@ -31,7 +31,6 @@ const create =  async (req, res, next) => {
 
 const update =  async (req, res, next) => {
     let { body } = req;
-
     try{
         const alreadyExistsFunc = await Funcionario.findOne({where: {id: req.params.id}});
 
@@ -66,7 +65,7 @@ const update =  async (req, res, next) => {
 
 const all =  async (req, res, next) => {
     try{  
-        let funcionarios = await Funcionario.findAll({include: Contato});
+        let funcionarios = await Funcionario.findAll({include: Contato, order: [["id", "ASC"]]});
         
         res.status(200).send(funcionarios);
     }catch(err){
