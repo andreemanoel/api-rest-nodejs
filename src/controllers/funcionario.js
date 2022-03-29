@@ -73,6 +73,23 @@ const all =  async (req, res, next) => {
     }
 }
 
+const funcionario =  async (req, res, next) => {
+    try{
+        const alreadyExistsFunc = await Funcionario.findOne({where: {id: req.params.id}});
+
+        if(!alreadyExistsFunc){
+            
+            return res.status(404).json({message: 'Funcionário não cadastrado.'});
+        }
+
+        let funcionario = await Funcionario.findOne({where: {id: req.params.id}, include: Contato});
+        
+        res.status(200).send(funcionario);
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+}
+
 const destroy =  async (req, res, next) => {
     try{
         const alreadyExistsFunc = await Funcionario.findOne({where: {id: req.params.id}});
@@ -99,4 +116,4 @@ const destroy =  async (req, res, next) => {
     }
 }
 
-module.exports = {create, update, all, destroy};
+module.exports = {create, update, all, destroy, funcionario};
