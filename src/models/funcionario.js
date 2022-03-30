@@ -14,7 +14,7 @@ const Funcionario = db.define('funcionario', {
       allowNull: false
     },
     data_nascimento: {
-      type: Sequelize.DATE,
+      type: Sequelize.DATEONLY,
       allowNull: false
     },
     status: {
