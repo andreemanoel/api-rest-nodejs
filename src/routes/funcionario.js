@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { create, update, all, destroy, funcionario } = require('../controllers/funcionario');
+const {validToken} = require('../middleware/login');
 
-router.post('/', create);
-router.put('/:id', update);
-router.delete('/:id', destroy);
-router.get('/', all);
-router.get('/:id', funcionario);
+router.post('/', validToken, create);
+router.put('/:id', validToken, update);
+router.delete('/:id', validToken, destroy);
+router.get('/', validToken, all);
+router.get('/:id', validToken, funcionario);
 
 // router.post('', create);
 
